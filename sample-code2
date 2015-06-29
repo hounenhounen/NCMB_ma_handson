@@ -1,0 +1,14 @@
+    var ReserveHotelClass = NCMB.Object.extend("ReserveHotel");
+    var reserveHotelClass = new ReserveHotelClass();
+    reserveHotelClass.set("HotelName", event.data.name);
+    reserveHotelClass.set("HotelUrl", event.data.url);
+    reserveHotelClass.set("Date", today.toISOString());
+    reserveHotelClass.save(null, {
+        success: function(object) {
+            // 保存完了後に実行される
+            
+        },
+        error: function(object, error) {
+            // エラー時に実行される
+        }
+    });
