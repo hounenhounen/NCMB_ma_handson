@@ -6,7 +6,7 @@
     query.greaterThan("Date", beforeOneWeek.toISOString());
     query.count({
         success: function(number) {
-            if(number > 2){
+            if(number > 1){
                 navigator.notification.alert("しっかり休み",alertDismissed , "今週もう３日目やで" , "気をつけます");
             }
         },
