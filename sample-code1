@@ -1,0 +1,17 @@
+    var today = new Date();
+    var beforeOneWeek = new Date();
+    var HotelClass = NCMB.Object.extend("ReserveHotel");
+    var query = new NCMB.Query(HotelClass);
+    beforeOneWeek.setDate(beforeOneWeek.getDate() - 7);
+    query.greaterThan("Date", beforeOneWeek.toISOString());
+    query.count({
+        success: function(number) {
+            if(number > 2){
+                navigator.notification.alert("しっかり休み",alertDismissed , "今週もう３日目やで" , "気をつけます");
+            }
+        },
+
+        error: function(error) {
+            navigator.notification.alert("失敗",alertDismissed , "失敗" , "了解");
+        }
+    });
